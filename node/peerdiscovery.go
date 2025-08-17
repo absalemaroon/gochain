@@ -8,7 +8,9 @@ import (
 
 	"github.com/volodymyrprokopyuk/go-blockchain/node/rpc"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/status"
 )
 
 type PeerReader interface {
@@ -103,6 +105,13 @@ func (d *PeerDiscovery) DiscoverPeers(period time.Duration) {
       for _, peer := range d.Peers() {
         if peer != d.cfg.NodeAddr {
           peers, err := d.grpcPeerDiscover(peer)
+          errorStatus, assert := status.FromError(err)
+          if assert && errorStatus.Code() == codes.Unavailable {
+            d.mtx.Lock()
+            delete(d.peers, peer)
+            d.mtx.Unlock()
+            continue
+          }
           if err != nil {
             fmt.Println(err)
             continue
