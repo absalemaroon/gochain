@@ -106,6 +106,6 @@ Authority consensus/, /block proposer/, /block relay/, /block application/,
 gRPC server/, /node CLI/, /start node/, /blockchain peer-to-peer network with
 two nodes/
 
-## Recognition
+*** Recognition
 
-Special thanks to [Volodymyr Prokopyuk](https://github.com/volodymyrprokopyuk) for his contribution to blockchain education.
+Special thanks to [[github.com/volodymyrprokopyuk][Volodymyr Prokopyuk]] for his contribution to blockchain education.
