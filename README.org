@@ -105,3 +105,7 @@ Authority consensus/, /block proposer/, /block relay/, /block application/,
 /block confirmation/, /event stream/, /node graceful shutdown mechanism/, /node
 gRPC server/, /node CLI/, /start node/, /blockchain peer-to-peer network with
 two nodes/
+
+## Recognition
+
+Special thanks to [Volodymyr Prokopyuk](https://github.com/volodymyrprokopyuk) for his contribution to blockchain education.
